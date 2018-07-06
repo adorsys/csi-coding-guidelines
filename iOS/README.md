@@ -20,3 +20,9 @@ such as:
 These names should be as descriptive as possible, so they add the most value
 when they show up in log files.
 In tests, we never have to call these functions, so the length does not matter.
+
+### Files
+
+#### .swiftlint.default.yml
+
+This file contains our default swiftlint rules that we consider best practice. These should be used in all projects.
