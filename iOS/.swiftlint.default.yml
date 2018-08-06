@@ -49,8 +49,12 @@ function_parameter_count:
   - 9
   - 10
 line_length:
-  - 200
-  - 250
+  warning: 120
+  error: 250
+  ignores_function_declarations: true
+  ignores_comments: true
+  ignores_interpolated_strings: true
+  ignores_urls: true
 identifier_name:
   max_length:
     warning: 45
