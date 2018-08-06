@@ -40,14 +40,14 @@ excluded:
 
 # Configure warning/error levels
 file_length:
-  - 450
-  - 500
+  warning: 450
+  error: 500
 function_body_length:
-  - 100
-  - 150
+  warning: 100
+  error: 150
 function_parameter_count:
-  - 9
-  - 10
+  warning: 9
+  error: 10
 line_length:
   warning: 120
   error: 250
@@ -67,6 +67,7 @@ type_name:
     error: 70
   min_length:
     warning: 3
+
 # Configure rules violation to be treated as an error
 explicit_init:
   severity: error
