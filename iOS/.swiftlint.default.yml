@@ -37,7 +37,6 @@ opt_in_rules:
 excluded:
   - Pods
   - Carthage
-  - /*/SnapshotHelper.swift
 
 # Configure warning/error levels
 file_length:
