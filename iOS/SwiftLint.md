@@ -51,11 +51,11 @@ cache:
 
 ### 3. Ignore rules that aren't relevant to the project
 
-You can disable and enable other rules in subfolders, for example:
+You can disable and enable other rules in subfolders.
+To do this, create a new `.swiftlint.yml` file in a subfolder, 
+for example in `./Sources` with the following content:
 
 ```
-Sources/.swiftlint.yml
-
 disabled_rules:
   - force_unwrap
 ```
