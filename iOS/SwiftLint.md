@@ -37,8 +37,17 @@ fi
 This will download the [default swiftlint file][] (at most once every day)
 and use that to configure SwiftLint.
 
-Please be sure to cache this file during CI (for example in `.gitlab-ci.yml`)
-since GitHub has a [rate limit][] in place for the files API.
+Please be sure to cache this file during CI since GitHub has a [rate limit][] 
+in place for the files API.
+
+Here's an example for [GitLab-CI][gitlab cache]:
+```yml
+.gitlab-ci.yml
+
+cache:
+  paths:
+    - .swiftlint.yml
+```
 
 ### 3. Ignore rules that aren't relevant to the project
 
@@ -59,3 +68,4 @@ Nested `.swiftlint.yml` files cannot exclude or include files, only rules.
 
 [default swiftlint file]: https://github.com/adorsys/csi-coding-guidelines/blob/master/iOS/.swiftlint.default.yml
 [rate limit]: https://developer.github.com/v3/#rate-limiting
+[gitlab cache]: https://docs.gitlab.com/ee/ci/yaml/#cache
