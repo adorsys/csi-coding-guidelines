@@ -27,7 +27,11 @@ SWIFTLINT_CONFIG_PATH=".swiftlint.yml"
 
 # If the file does not exist or is older than 1 day, download it
 if [[ ! -f $SWIFTLINT_CONFIG_PATH ]] || [[ $(find "$SWIFTLINT_CONFIG_PATH" -mtime +1 -print) ]]; then
-    curl -H 'Accept: application/vnd.github.v3.raw' -L 'https://api.github.com/repos/adorsys/csi-coding-guidelines/contents/iOS/.swiftlint.default.yml' > $SWIFTLINT_CONFIG_PATH
+    last_modified=$(date -u -r $SWIFTLINT_CONFIG_PATH "+%a, %d %b %Y %H:%M:%S GMT" 2>/dev/null || true)
+    curl \
+        -H 'Accept: application/vnd.github.v3.raw'\
+        -H "If-Modified-Since: $last_modified" \
+        https://api.github.com/repos/adorsys/csi-coding-guidelines/contents/iOS/.swiftlint.default.yml > $SWIFTLINT_CONFIG_PATH
 fi
 
 "${PODS_ROOT}/SwiftLint/swiftlint" autocorrect --config ${SWIFTLINT_CONFIG_PATH}
