@@ -21,21 +21,32 @@ brew install swiftlint
 Create a new Run Script phase in Xcode and paste the following script.
 
 ```shell
-set -euo pipefail
+#!/bin/bash
 
 SWIFTLINT_CONFIG_PATH=".swiftlint.yml"
+TEMP_FILE=".temp.yml"
 
 # If the file does not exist or is older than 1 day, download it
 if [[ ! -f $SWIFTLINT_CONFIG_PATH ]] || [[ $(find "$SWIFTLINT_CONFIG_PATH" -mtime +1 -print) ]]; then
     last_modified=$(date -u -r $SWIFTLINT_CONFIG_PATH "+%a, %d %b %Y %H:%M:%S GMT" 2>/dev/null || true)
-    curl \
+    http_code=$(curl \
         -H 'Accept: application/vnd.github.v3.raw'\
         -H "If-Modified-Since: $last_modified" \
-        https://api.github.com/repos/adorsys/csi-coding-guidelines/contents/iOS/.swiftlint.default.yml > $SWIFTLINT_CONFIG_PATH
+        -w "%{http_code}" \
+        -o $TEMP_FILE \
+        https://api.github.com/repos/adorsys/csi-coding-guidelines/contents/iOS/.swiftlint.default.yml)
+
+    if [[ 200 == "$http_code" ]]; then
+        mv $TEMP_FILE $SWIFTLINT_CONFIG_PATH
+    else
+        rm -f $TEMP_FILE
+    fi
 fi
 
-"${PODS_ROOT}/SwiftLint/swiftlint" autocorrect --config ${SWIFTLINT_CONFIG_PATH}
-"${PODS_ROOT}/SwiftLint/swiftlint" lint --config ${SWIFTLINT_CONFIG_PATH}
+if [[ -e $SWIFTLINT_CONFIG_PATH ]]; then
+    "${PODS_ROOT}/SwiftLint/swiftlint" autocorrect --config ${SWIFTLINT_CONFIG_PATH}
+    "${PODS_ROOT}/SwiftLint/swiftlint" lint --config ${SWIFTLINT_CONFIG_PATH}
+fi
 ```
 
 This will download the [default swiftlint file][] (at most once every day)
