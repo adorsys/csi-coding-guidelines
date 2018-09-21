@@ -30,7 +30,7 @@ TEMP_FILE=".temp.yml"
 if [[ ! -f $SWIFTLINT_CONFIG_PATH ]] || [[ $(find "$SWIFTLINT_CONFIG_PATH" -mtime +1 -print) ]]; then
     last_modified=$(date -u -r $SWIFTLINT_CONFIG_PATH "+%a, %d %b %Y %H:%M:%S GMT" 2>/dev/null || true)
     http_code=$(curl \
-        -H 'Accept: application/vnd.github.v3.raw'\
+        -H 'Accept: application/vnd.github.v4.raw' \
         -H "If-Modified-Since: $last_modified" \
         -w "%{http_code}" \
         -o $TEMP_FILE \
