@@ -32,6 +32,13 @@ opt_in_rules:
   - empty_xctest_method
   - convenience_type
   - anyobject_protocol
+  - legacy_random
+  - closure_body_length
+  - inert_defer
+  - toggle_bool
+  - identical_operands
+  - collection_alignment
+  - static_operator
 
 # Exclude pods and vendor sources
 excluded:
