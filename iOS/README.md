@@ -35,7 +35,7 @@ a launch argument.
 The same applies to Unit Tests. Here, it's elegant to do this in a class that
 implements `XCTestObservation`.
 
-See also the [`snapshot` tips] for more info.
+See also the [snapshot tips][] for more info.
 
 An alternative to this is to modify the layer speed of windows, which keeps
 animations around but makes them run really fast.
