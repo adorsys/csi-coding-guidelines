@@ -14,6 +14,7 @@ Tasks Developer
 - [ ] No Test were removed
 - [ ] The change was successfully tested
 - [ ] An inverted test of the change was made
+- [ ] SwiftLint passes without warnings
 
 Tasks Reviewer
 - [ ] The branch could be checked out and the app could be built
