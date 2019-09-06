@@ -3,7 +3,7 @@
 
 ## Merge Request and Review Checklist:
 
-Tasks Developer
+#### Tasks Developer
 - [ ] App builds successfully
 - [ ] The reason of the bug was fixed
 - [ ] Matches coding style
@@ -16,7 +16,7 @@ Tasks Developer
 - [ ] An inverted test of the change was made
 - [ ] SwiftLint passes without warnings
 
-Tasks Reviewer
+#### Tasks Reviewer
 - [ ] The branch could be checked out and the app could be built
 - [ ] Changes are formatted correctly
 - [ ] No warnings or only warning that are known by the reviewer
