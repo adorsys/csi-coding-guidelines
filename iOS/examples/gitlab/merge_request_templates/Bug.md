@@ -1,3 +1,6 @@
+# Description:
+([JIRA-Ticket][])
+
 ## Merge Request and Review Checklist:
 
 Tasks Developer
@@ -20,3 +23,5 @@ Tasks Reviewer
 - [ ] No typos
 - [ ] No Unit Test were removed
 - [ ] The change was tested successfully once
+
+[JIRA-Ticket]: https://jira.adorsys.de/browse/XXX
