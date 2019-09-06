@@ -24,4 +24,6 @@ Tasks Reviewer
 - [ ] No Unit Test were removed
 - [ ] The change was tested successfully once
 
+## :frame_photo: Screenshots
+
 [JIRA-Ticket]: https://jira.adorsys.de/browse/XXX
