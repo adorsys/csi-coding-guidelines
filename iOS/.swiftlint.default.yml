@@ -39,6 +39,7 @@ opt_in_rules:
   - identical_operands
   - collection_alignment
   - static_operator
+  - multiline_literal_brackets
 
 # Exclude pods and vendor sources
 excluded:
